@@ -1,0 +1,13 @@
+class Vehicle
+  def mileage; puts "Calculating mileage..."; end
+  def fuel_level; puts "Checking fuel level..."; end
+  def maintenance; puts "Performing maintenance..."; end
+end
+
+class Car < Vehicle
+  def air_conditioning; puts "Car AC running..."; end
+end
+
+class Truck < Vehicle
+  def load_capacity; puts "Checking load capacity..."; end
+end
