@@ -1,0 +1,26 @@
+package require Tk
+
+set list1_items {Item1 Item2 Item3}
+
+listbox .lb1 -selectmode single -height 5
+listbox .lb2 -selectmode single -height 5
+
+foreach item $list1_items {
+    .lb1 insert end $item
+}
+
+pack .lb1 .lb2 -side left -padx 5
+
+.lb1 bind <ButtonRelease-1> {
+    set sel [.lb1 get [.lb1 curselection]]
+    if {$sel ne ""} {
+        .lb2 insert end $sel
+    }
+}
+
+.lb2 bind <ButtonRelease-1> {
+    set selIndex [.lb2 curselection]
+    if {$selIndex ne ""} {
+        .lb2 delete $selIndex
+    }
+}
